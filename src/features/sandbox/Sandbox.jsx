@@ -4,7 +4,7 @@ import { decrement, increment } from './testReducer'
 
 export default function Sandbox() {
   const dispatch = useDispatch()
-  const data = useSelector((state) => state.test.data)
+  const { data } = useSelector((state) => state.test)
   return (
     <>
       <h1>Testing 123</h1>
