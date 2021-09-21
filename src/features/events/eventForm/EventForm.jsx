@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Button, Form, Header, Segment } from 'semantic-ui-react'
+import cuid from 'cuid'
 
-export default function EventForm({ setEvents, setFormOpen }) {
+export default function EventForm({ createEvent, setEvents, setFormOpen }) {
   const initialValues = {
     title: '',
     category: '',
@@ -14,7 +15,14 @@ export default function EventForm({ setEvents, setFormOpen }) {
   const [values, setValues] = useState(initialValues)
 
   function handleFormSubmit() {
-    console.log(values)
+    createEvent({
+      ...values,
+      id: cuid(),
+      hostedBy: 'Bob',
+      attendees: [],
+      hostPhotoURL: '/assets/user.png',
+    })
+    setFormOpen(false)
   }
 
   function handleInputChange(e) {
