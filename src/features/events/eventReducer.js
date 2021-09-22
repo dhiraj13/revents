@@ -10,7 +10,7 @@ export default function eventReducer(state = initialState, { type, payload }) {
     case CREATE_EVENT:
       return {
         ...state,
-        events: [...state.events, ...payload],
+        events: [...state.events, payload],
       }
     case UPDATE_EVENT:
       return {
@@ -23,7 +23,7 @@ export default function eventReducer(state = initialState, { type, payload }) {
     case DELETE_EVENT:
       return {
         ...state,
-        events: [...state.events.filter((evt) => evt.id !== payload.id)],
+        events: [...state.events.filter((evt) => evt.id !== payload)],
       }
     default:
       return state
