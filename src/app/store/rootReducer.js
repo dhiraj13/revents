@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
 import eventReducer from '../../features/events/eventReducer'
-import testReducer from '../../features/sandbox/testReducer'
 
-const rootReducer = combineReducers({
-  test: testReducer,
+const staticReducers = {
   event: eventReducer,
-})
+}
 
-export default rootReducer
+export const createReducer = (asyncReducers = {}) =>
+  combineReducers({
+    ...asyncReducers,
+    ...staticReducers,
+  })
+
+export default createReducer

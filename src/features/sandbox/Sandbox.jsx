@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'semantic-ui-react'
-import { decrement, increment } from './testReducer'
+import withReducer from '../../app/store/withReducer'
+import testReducer, { decrement, increment } from './testReducer'
 
-export default function Sandbox() {
+const Sandbox = () => {
   const dispatch = useDispatch()
   const { data } = useSelector((state) => state.test)
   return (
@@ -22,3 +23,5 @@ export default function Sandbox() {
     </>
   )
 }
+
+export default withReducer('test', testReducer)(Sandbox)
