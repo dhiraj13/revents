@@ -11,6 +11,7 @@ import { createEvent, updateEvent } from '../eventActions'
 import MyTextArea from '../../../app/common/form/MyTextArea'
 import MySelectInput from '../../../app/common/form/MySelectInput'
 import { categoryOptions } from '../../../app/api/categoryOptions'
+import MyDateInput from '../../../app/common/form/MyDateInput'
 
 export default function EventForm({ history, match }) {
   const dispatch = useDispatch()
@@ -68,7 +69,14 @@ export default function EventForm({ history, match }) {
           <Header sub color='teal' content='Event Location Details' />
           <MyTextInput name='city' placeholder='City' />
           <MyTextInput name='venue' placeholder='Venue' />
-          <MyTextInput name='date' placeholder='Event date' type='date' />
+          <MyDateInput
+            name='date'
+            placeholderText='Event date'
+            timeFormat='HH:mm'
+            showTimeSelect
+            timeCaption='time'
+            dateFormat='MMMM d, yyyy h:mm a'
+          />
           <Button type='submit' floated='right' positive content='Submit' />
           <Button
             as={Link}
