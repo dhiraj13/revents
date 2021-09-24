@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
+import MyTextInput from '../../../app/common/form/MyTextInput'
 
 export default function EventForm({ history, match }) {
   const dispatch = useDispatch()
@@ -50,13 +51,7 @@ export default function EventForm({ history, match }) {
         onSubmit={(values) => console.log(values)}
       >
         <Form className='ui form'>
-          <FormField>
-            <Field name='title' placeholder='Event title' />
-            <ErrorMessage
-              name='title'
-              render={(error) => <Label basic color='red' content={error} />}
-            />
-          </FormField>
+          <MyTextInput name='title' placeholder='Event title' />
           <FormField>
             <Field name='category' placeholder='Category' />
           </FormField>
