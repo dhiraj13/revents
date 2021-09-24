@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
+
 import MyTextInput from '../../../app/common/form/MyTextInput'
 import { createEvent, updateEvent } from '../eventActions'
 import MyTextArea from '../../../app/common/form/MyTextArea'
+import MySelectInput from '../../../app/common/form/MySelectInput'
+import { categoryOptions } from '../../../app/api/categoryOptions'
 
 export default function EventForm({ history, match }) {
   const dispatch = useDispatch()
@@ -56,7 +59,11 @@ export default function EventForm({ history, match }) {
         <Form className='ui form'>
           <Header sub color='teal' content='Event Details' />
           <MyTextInput name='title' placeholder='Event title' />
-          <MyTextInput name='category' placeholder='Category' />
+          <MySelectInput
+            name='category'
+            placeholder='Category'
+            options={categoryOptions}
+          />
           <MyTextArea name='description' placeholder='Description' />
           <Header sub color='teal' content='Event Location Details' />
           <MyTextInput name='city' placeholder='City' />
