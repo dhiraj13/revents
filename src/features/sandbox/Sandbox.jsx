@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react'
 import withReducer from '../../app/store/withReducer'
 import testReducer, { decrement, increment } from './testReducer'
 
-const Sandbox = () => {
+function Sandbox() {
   const dispatch = useDispatch()
   const { data } = useSelector((state) => state.test)
   return (
