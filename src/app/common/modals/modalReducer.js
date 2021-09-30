@@ -10,7 +10,7 @@ export function openModal(payload) {
 
 export function closeModal() {
   return {
-    type: OPEN_MODAL,
+    type: CLOSE_MODAL,
   }
 }
 
